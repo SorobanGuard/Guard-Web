@@ -196,7 +196,6 @@ export default function HistoryPage() {
                   {e.findings.length} finding
                   {e.findings.length !== 1 ? "s" : ""}
                 </p>
-                {/* Schedule rescan toggle */}
                 <div className="mt-3 flex items-center gap-2">
                   <svg
                     className="h-3.5 w-3.5 text-slate-500"
