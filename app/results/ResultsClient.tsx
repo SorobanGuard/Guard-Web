@@ -817,7 +817,7 @@ export default function ResultsClient() {
       </button>
 
       <footer className="border-t border-[var(--border)] py-6 text-center text-xs text-slate-600">
-        Soroban Guard · Veritas Vaults Network
+        Soroban Guard · SorobanGuard
       </footer>
 
       {showGithubModal && (

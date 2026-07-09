@@ -32,27 +32,31 @@ export default function CLIDocsPage() {
           </Link>
           <h1 className="text-3xl font-bold text-white">CLI & REST API Documentation</h1>
           <p className="mt-2 text-lg text-slate-400">
-            Guide for developers using soroban-guard-core directly
+            Guide for using Guard-CLI locally and the Soroban Guard scan API
           </p>
         </div>
 
         {/* Installation Section */}
         <section className="mb-12">
-          <h2 className="mb-4 text-xl font-semibold text-white">Installation & Setup</h2>
+          <h2 className="mb-4 text-xl font-semibold text-white">Guard-CLI: Installation & Usage</h2>
+          <p className="mb-4 text-slate-400">
+            <a href="https://github.com/SorobanGuard/Guard-CLI" className="text-sky-400 hover:underline">Guard-CLI</a> is a
+            static-analysis CLI you can run locally or in CI — no network access required.
+          </p>
           <div className="space-y-4">
             <div className="rounded-lg border border-[var(--border)] bg-[var(--bg-secondary)] p-6">
               <h3 className="mb-3 font-medium text-white">1. Clone the repository</h3>
               <CodeBlock
                 id="clone"
-                code="git clone https://github.com/Veritas-Vaults-Network/soroban-guard-core.git
-cd soroban-guard-core"
+                code="git clone https://github.com/SorobanGuard/Guard-CLI.git
+cd Guard-CLI"
                 onCopy={copyToClipboard}
                 copied={copiedCommand === 'clone'}
               />
             </div>
 
             <div className="rounded-lg border border-[var(--border)] bg-[var(--bg-secondary)] p-6">
-              <h3 className="mb-3 font-medium text-white">2. Install dependencies</h3>
+              <h3 className="mb-3 font-medium text-white">2. Build</h3>
               <CodeBlock
                 id="install"
                 code="cargo build --release"
@@ -62,15 +66,15 @@ cd soroban-guard-core"
             </div>
 
             <div className="rounded-lg border border-[var(--border)] bg-[var(--bg-secondary)] p-6">
-              <h3 className="mb-3 font-medium text-white">3. Run the server</h3>
+              <h3 className="mb-3 font-medium text-white">3. Scan a contract</h3>
               <CodeBlock
                 id="run"
-                code="./target/release/soroban-guard-core"
+                code="./target/release/soroban-guard scan ./path/to/contract --json"
                 onCopy={copyToClipboard}
                 copied={copiedCommand === 'run'}
               />
               <p className="mt-2 text-sm text-slate-400">
-                The server will start on <code className="rounded bg-[var(--bg-tertiary)] px-1 text-slate-300">http://localhost:3001</code>
+                Also supports <code className="rounded bg-[var(--bg-tertiary)] px-1 text-slate-300">--sarif</code>, <code className="rounded bg-[var(--bg-tertiary)] px-1 text-slate-300">--markdown</code>, <code className="rounded bg-[var(--bg-tertiary)] px-1 text-slate-300">--fail-on high|medium|low</code>, <code className="rounded bg-[var(--bg-tertiary)] px-1 text-slate-300">--include &lt;glob&gt;</code>, and <code className="rounded bg-[var(--bg-tertiary)] px-1 text-slate-300">--disable-check &lt;name&gt;</code>. Run <code className="rounded bg-[var(--bg-tertiary)] px-1 text-slate-300">soroban-guard list-checks</code> to see all available checks.
               </p>
             </div>
           </div>
@@ -78,7 +82,10 @@ cd soroban-guard-core"
 
         {/* REST API Section */}
         <section className="mb-12">
-          <h2 className="mb-4 text-xl font-semibold text-white">REST API Usage</h2>
+          <h2 className="mb-4 text-xl font-semibold text-white">Scan API Usage</h2>
+          <p className="mb-4 text-slate-400">
+            Guard-Web talks to a scan API over HTTP (configured via <code className="rounded bg-[var(--bg-tertiary)] px-1 text-slate-300">NEXT_PUBLIC_API_URL</code>, defaults to <code className="rounded bg-[var(--bg-tertiary)] px-1 text-slate-300">http://localhost:3001</code>) that runs the same checks as Guard-CLI over HTTP.
+          </p>
 
           <div className="mb-6 rounded-lg border border-[var(--border)] bg-[var(--bg-secondary)] p-6">
             <h3 className="mb-3 font-medium text-white">POST /scan</h3>

@@ -19,8 +19,8 @@ export default function BadgePage() {
 
   const imgUrl = badgeUrl(status)
   const markdown = contractId.trim()
-    ? `[![Soroban Guard](${imgUrl})](https://soroban-guard.veritas-vaults.network/?contractId=${encodeURIComponent(contractId.trim())}&network=${network})`
-    : `[![Soroban Guard](${imgUrl})](https://soroban-guard.veritas-vaults.network)`
+    ? `[![Soroban Guard](${imgUrl})](https://guard-web.example.com/?contractId=${encodeURIComponent(contractId.trim())}&network=${network})`
+    : `[![Soroban Guard](${imgUrl})](https://guard-web.example.com)`
 
   function handleCopy() {
     navigator.clipboard.writeText(markdown).then(() => show('Markdown copied!', 'success'))

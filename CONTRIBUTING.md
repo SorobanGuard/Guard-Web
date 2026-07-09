@@ -12,8 +12,8 @@ This repo is the frontend dashboard for Soroban Guard — a smart contract secur
 ## Local setup
 
 ```bash
-git clone https://github.com/Veritas-Vaults-Network/Soroban-Guard-web.git
-cd Soroban-Guard-web
+git clone https://github.com/SorobanGuard/Guard-Web.git
+cd Guard-Web
 npm install
 ```
 
@@ -23,7 +23,7 @@ Create an environment file for local API access:
 echo "NEXT_PUBLIC_API_URL=http://localhost:3001" > .env.local
 ```
 
-`NEXT_PUBLIC_API_URL` should point to a running `soroban-guard-core` instance.
+`NEXT_PUBLIC_API_URL` should point to a running instance of the Soroban Guard scan API.
 
 ## Running the app
 
@@ -68,5 +68,5 @@ Before creating a pull request, make sure to:
 
 ## Sister repos
 
-- [soroban-guard-core](https://github.com/Veritas-Vaults-Network/Soroban-Guard-Core) — Rust/Axum analysis engine
-- [soroban-guard-contracts](https://github.com/Veritas-Vaults-Network/soroban-guard-contracts) — Example Soroban contracts for testing
+- [Guard-CLI](https://github.com/SorobanGuard/Guard-CLI) — Rust static-analysis CLI for Soroban contracts
+- [Guard---Contracts](https://github.com/SorobanGuard/Guard---Contracts) — Example Soroban contracts for testing

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://soroban-guard.veritas-vaults.network'
+const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://guard-web.example.com'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

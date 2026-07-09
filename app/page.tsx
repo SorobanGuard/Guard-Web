@@ -196,13 +196,13 @@ export default function HomePage() {
           <Logo />
           <div className="flex items-center gap-3">
             <a
-              href="https://github.com/Veritas-Vaults-Network"
+              href="https://github.com/SorobanGuard"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm text-slate-400 ring-1 ring-[var(--border)] transition hover:text-white"
             >
               <GithubIcon />
-              Veritas Vaults Network
+              SorobanGuard
             </a>
             <button
               onClick={tour.start}
@@ -431,24 +431,24 @@ export default function HomePage() {
         <section className="py-16">
           <div className="mx-auto max-w-5xl px-4 sm:px-6">
             <h2 className="mb-8 text-center text-xl font-semibold text-slate-300">
-              Part of the Veritas Vaults Network ecosystem
+              Part of the SorobanGuard ecosystem
             </h2>
             <div className="grid gap-4 sm:grid-cols-3">
               <RepoCard
-                name="soroban-guard-web"
+                name="Guard-Web"
                 description="This dashboard — the frontend for scanning and reviewing findings."
-                href="https://github.com/Veritas-Vaults-Network/soroban-guard-web"
+                href="https://github.com/SorobanGuard/Guard-Web"
                 active
               />
               <RepoCard
-                name="soroban-guard-core"
-                description="Rust/Axum REST API that performs the static analysis."
-                href="https://github.com/Veritas-Vaults-Network/soroban-guard-core"
+                name="Guard-CLI"
+                description="Rust static-analysis CLI that performs the same checks as the scan API."
+                href="https://github.com/SorobanGuard/Guard-CLI"
               />
               <RepoCard
-                name="soroban-guard-contracts"
+                name="Guard---Contracts"
                 description="Example Soroban contracts used for testing the scanner."
-                href="https://github.com/Veritas-Vaults-Network/soroban-guard-contracts"
+                href="https://github.com/SorobanGuard/Guard---Contracts"
               />
             </div>
           </div>
@@ -459,12 +459,12 @@ export default function HomePage() {
         <p>
           Built by{' '}
           <a
-            href="https://github.com/Veritas-Vaults-Network"
+            href="https://github.com/SorobanGuard"
             className="text-slate-500 hover:text-slate-300"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Veritas Vaults Network
+            SorobanGuard
           </a>{' '}
           · Open source · MIT License
         </p>

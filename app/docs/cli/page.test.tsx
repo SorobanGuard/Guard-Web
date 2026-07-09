@@ -17,8 +17,8 @@ describe('CLIDocsPage', () => {
 
   it('renders key section headings', () => {
     render(<CLIDocsPage />)
-    expect(screen.getByText('Installation & Setup')).toBeInTheDocument()
-    expect(screen.getByText('REST API Usage')).toBeInTheDocument()
+    expect(screen.getByText('Guard-CLI: Installation & Usage')).toBeInTheDocument()
+    expect(screen.getByText('Scan API Usage')).toBeInTheDocument()
     expect(screen.getByText('Response Format')).toBeInTheDocument()
     expect(screen.getByText('Error Handling')).toBeInTheDocument()
   })
@@ -32,7 +32,7 @@ describe('CLIDocsPage', () => {
   it('contains expected CLI commands in code blocks', () => {
     render(<CLIDocsPage />)
     expect(screen.getByText(/cargo build --release/)).toBeInTheDocument()
-    expect(screen.getAllByText(/soroban-guard-core/).length).toBeGreaterThan(0)
+    expect(screen.getAllByText(/soroban-guard scan/).length).toBeGreaterThan(0)
     expect(screen.getByText(/curl -X POST/)).toBeInTheDocument()
   })
 })

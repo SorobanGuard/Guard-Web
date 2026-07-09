@@ -12,10 +12,9 @@ Only the latest code on the `main` branch receives security fixes.
 
 **Do not open a public GitHub issue for security vulnerabilities.**
 
-Please report them via one of the following:
+Please report them via:
 
-- **GitHub Private Advisory** — [Report a vulnerability](../../security/advisories/new) (preferred)
-- **Email** — `security@veritas-vaults.network`
+- **GitHub Private Advisory** — [Report a vulnerability](../../security/advisories/new)
 
 Include as much detail as possible: steps to reproduce, affected component, and potential impact.
 

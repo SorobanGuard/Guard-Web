@@ -32,7 +32,7 @@ describe('BadgePage', () => {
     )
     expect(
       screen.getByText(
-        '[![Soroban Guard](https://img.shields.io/badge/Soroban%20Guard-passing-brightgreen)](https://soroban-guard.veritas-vaults.network)',
+        '[![Soroban Guard](https://img.shields.io/badge/Soroban%20Guard-passing-brightgreen)](https://guard-web.example.com)',
       ),
     ).toBeInTheDocument()
 
@@ -46,7 +46,7 @@ describe('BadgePage', () => {
     )
     expect(
       screen.getByText(
-        '[![Soroban Guard](https://img.shields.io/badge/Soroban%20Guard-warnings-yellow)](https://soroban-guard.veritas-vaults.network/?contractId=CABC%20TEST&network=mainnet)',
+        '[![Soroban Guard](https://img.shields.io/badge/Soroban%20Guard-warnings-yellow)](https://guard-web.example.com/?contractId=CABC%20TEST&network=mainnet)',
       ),
     ).toBeInTheDocument()
   })
@@ -61,7 +61,7 @@ describe('BadgePage', () => {
 
     await waitFor(() =>
       expect(mockWriteText).toHaveBeenCalledWith(
-        '[![Soroban Guard](https://img.shields.io/badge/Soroban%20Guard-failing-red)](https://soroban-guard.veritas-vaults.network/?contractId=CXYZ&network=futurenet)',
+        '[![Soroban Guard](https://img.shields.io/badge/Soroban%20Guard-failing-red)](https://guard-web.example.com/?contractId=CXYZ&network=futurenet)',
       ),
     )
     expect(mockShow).toHaveBeenCalledWith('Markdown copied!', 'success')

@@ -80,7 +80,7 @@ export default function EmbedPage({ params }: Props) {
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <span style={{ color: '#475569', fontSize: 9 }}>Scanned {scanDate}</span>
             <a
-              href="https://github.com/Veritas-Vaults-Network/soroban-guard-web"
+              href="https://github.com/SorobanGuard/Guard-Web"
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: '#6366f1', fontSize: 9, textDecoration: 'none' }}

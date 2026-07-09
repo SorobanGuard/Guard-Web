@@ -2,7 +2,7 @@
 
 The frontend dashboard for **Soroban Guard** — an automated security scanner for [Soroban](https://soroban.stellar.org/) smart contracts on the **Stellar blockchain**.
 
-Built with Next.js 14, TypeScript, and Tailwind CSS. Part of the [Veritas Vaults Network](https://github.com/Veritas-Vaults-Network) ecosystem.
+Built with Next.js 14, TypeScript, and Tailwind CSS. Part of the [SorobanGuard](https://github.com/SorobanGuard) ecosystem.
 
 ---
 
@@ -32,7 +32,7 @@ const network   = await getFreighterNetwork() // { name, networkPassphrase, hori
 Beyond pasting source code or a GitHub URL, users can scan a **deployed contract** directly by its Soroban contract ID (C-address):
 
 1. Enter a C-address in the "Contract ID" tab of the scan input
-2. The core API (`soroban-guard-core`) resolves the WASM bytecode via Soroban RPC
+2. The scan API (`NEXT_PUBLIC_API_URL`) resolves the WASM bytecode via Soroban RPC
 3. The WASM is decompiled and analyzed for vulnerabilities
 4. Findings are returned and displayed in the results dashboard
 
@@ -69,7 +69,7 @@ Network configuration lives in `types/stellar.ts` and is automatically synced fr
 
 - Paste contract source code, enter a GitHub repo URL, or scan by Soroban contract ID
 - Connect Freighter wallet — live network detection (Mainnet / Testnet / Futurenet)
-- Real-time scan via the Soroban Guard Core REST API
+- Real-time scan via the Soroban Guard scan API
 - Findings table with severity badges (High / Medium / Low)
 - Expandable rows with full finding detail (function, file, line)
 - Summary bar with per-severity counts
@@ -86,7 +86,7 @@ Network configuration lives in `types/stellar.ts` and is automatically synced fr
 | Styling | Tailwind CSS |
 | Wallet | Freighter (Stellar browser extension) |
 | Blockchain | Stellar Horizon REST API + Soroban RPC |
-| API | Axum REST (soroban-guard-core) |
+| API | REST scan API (`NEXT_PUBLIC_API_URL`) — implements the same Soroban contract security checks as [Guard-CLI](https://github.com/SorobanGuard/Guard-CLI) |
 
 ## Getting Started
 
@@ -109,7 +109,7 @@ Install [Freighter](https://freighter.app) in your browser to enable wallet feat
 
 | Variable | Default | Description |
 |---|---|---|
-| `NEXT_PUBLIC_API_URL` | `http://localhost:3001` | Base URL for soroban-guard-core |
+| `NEXT_PUBLIC_API_URL` | `http://localhost:3001` | Base URL for the Soroban Guard scan API |
 | `API_SECRET_KEY` | *(unset)* | Shared secret for internal API routes (see below) |
 | `KV_REST_API_URL` | *(unset)* | Vercel KV REST endpoint for persistent storage |
 | `KV_REST_API_TOKEN` | *(unset)* | Vercel KV REST auth token |
@@ -136,7 +136,7 @@ Results are stored with a 30-day TTL; webhook tokens expire after 1 hour.
 
 ## API Contract
 
-The app calls `POST /scan` on the core API:
+The app calls `POST /scan` on the scan API configured via `NEXT_PUBLIC_API_URL`:
 
 **Request**
 ```json
@@ -178,7 +178,7 @@ components/
   WalletConnect.tsx   # Freighter wallet connect button
   NetworkBadge.tsx    # Stellar network indicator pill
 lib/
-  api.ts              # fetch wrapper for soroban-guard-core
+  api.ts              # fetch wrapper for the scan API
   stellar.ts          # Horizon REST + Soroban RPC helpers
   wallet.ts           # Freighter wallet integration
 types/
@@ -188,8 +188,8 @@ types/
 
 ## Sister Repos
 
-- [soroban-guard-core](https://github.com/Veritas-Vaults-Network/Soroban-Guard-Core) — Rust/Axum analysis engine
-- [soroban-guard-contracts](https://github.com/Veritas-Vaults-Network/soroban-guard-contracts) — Example contracts for testing
+- [Guard-CLI](https://github.com/SorobanGuard/Guard-CLI) — Rust static-analysis CLI for Soroban contracts; implements the same vulnerability checks as the scan API this app calls, runnable locally or in CI (`soroban-guard scan <path>`)
+- [Guard---Contracts](https://github.com/SorobanGuard/Guard---Contracts) — Sample vulnerable and secure Soroban contracts used for testing the scanner
 
 ## Contributing
 

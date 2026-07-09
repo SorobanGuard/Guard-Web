@@ -64,7 +64,7 @@ export async function attestScan(
   const sequence = BigInt(accountData.sequence) + 1n
 
   // 2. Build XDR for Soroban contract invocation
-  //    Invokes soroban-guard-contracts with scan data
+  //    Invokes the Guard---Contracts scan-result registry contract
   const xdr = buildContractInvocationXdr(
     publicKey,
     sequence,
@@ -113,10 +113,10 @@ export async function attestScan(
  * Build a Soroban contract invocation XDR.
  *
  * Builds a transaction with an InvokeHostFunction operation that calls
- * a method on the soroban-guard-contracts smart contract to record scan results.
+ * a method on the Guard---Contracts scan-result registry contract to record scan results.
  *
  * The contract address and method signature are configured in this function.
- * Update these constants when deploying the soroban-guard-contracts.
+ * Update these constants when deploying Guard---Contracts.
  */
 function buildContractInvocationXdr(
   publicKey: string,
@@ -125,7 +125,7 @@ function buildContractInvocationXdr(
   findingsJson: string,
   networkPassphrase: string,
 ): string {
-  // TODO: Replace with actual deployed soroban-guard-contracts address
+  // TODO: Replace with actual deployed Guard---Contracts address
   // This is a placeholder that shows the structure. The contract should be
   // deployed and the address set here. Example:
   // const GUARD_CONTRACT_ID = 'CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD2KM'

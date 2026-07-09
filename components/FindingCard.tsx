@@ -154,7 +154,7 @@ export default function FindingCard({ finding, onMuteChange }: Props) {
           {muted ? "Unmute this finding" : "Mute this finding"}
         </button>
         <a
-          href={`https://github.com/Veritas-Vaults-Network/soroban-guard-core/issues/new?title=${encodeURIComponent(`False positive: ${finding.check_name}`)}&body=${encodeURIComponent(finding.description)}`}
+          href={`https://github.com/SorobanGuard/Guard-CLI/issues/new?title=${encodeURIComponent(`False positive: ${finding.check_name}`)}&body=${encodeURIComponent(finding.description)}`}
           target="_blank"
           rel="noopener noreferrer"
           className="text-xs text-slate-500 hover:text-slate-300 transition-colors"
